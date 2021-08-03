@@ -70,6 +70,19 @@ class Transaction:
             },
         }
         self._msgs.append(msg)
+    
+    def add_exchange_msg_cancel_spot_order(self, subaccount: str, market_id: int, order_hash: str)->None:
+        msg = {
+            "type": "exchange/MsgCancelSpotOrder",
+            "value": {
+                "sender": privkey_to_address(self._privkey, hrp=self._hrp),
+                "subaccount_id": subaccount,
+                "market_id": market_id,
+                "order_hash": order_hash,
+            },
+        }
+        self._msgs.append(msg)
+
 
     def get_signed(self) -> str:
         pubkey = privkey_to_pubkey(self._privkey)
