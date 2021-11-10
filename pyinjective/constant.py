@@ -101,8 +101,14 @@ class Network:
         )
 
     @classmethod
-    def mainnet(cls, location='tokyo'):
-        s = 'sentry1' if location == 'tokyo' else 'sentry0'
+    def mainnet(cls, location='usa'):
+        
+        if location == 'tokyo':
+            s = 'sentry1'
+        elif location == "backup":
+            s = 'sentry2'
+        else:
+            s = 'sentry0'
 
         return cls(
             lcd_endpoint='https://lcd.injective.network',

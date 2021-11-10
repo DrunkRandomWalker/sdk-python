@@ -152,7 +152,7 @@ class AsyncClient:
 
     async def stream_keepalive(self):
         req = exchange_meta_rpc_pb.StreamKeepaliveRequest()
-        return await self.stubMeta.StreamKeepalive(req)
+        return self.stubMeta.StreamKeepalive(req)
 
 
     #AccountsRPC
